@@ -6,6 +6,14 @@ from BeautifulSoup import BeautifulSoup as bs
 
 
 def beautify_string(string):
+    """
+    diese Methode entfernt mir die Sonderzeichen, z.B. "&nbsp;" (leerzeichen) aus dem text.
+    auch werden "," am Anfang und "ß" korrekt gemacht
+
+    :param string:  der text / name der verschoenert werden soll
+    :return: string
+    """
+
     string = string.replace("&nbsp;", " ").replace("\\xdf", "ss").replace(",", " ")
     string = string.strip()
 
@@ -17,6 +25,17 @@ def beautify_string(string):
 
 
 def parse():
+    """
+    Das ist der eigentliche Parser
+
+    -ich rufe die Stolpersteine-stuttgart website auf
+    - lade alle stolpersteine
+    - suche die Namen, Links und Straßen von den Stolpersteinen
+    - speichere das in einer .csv datei ab
+
+    :return:
+    """
+
     print "start parsing"
     print "-------------"
 
@@ -100,4 +119,3 @@ def parse():
 # Start funktion. hiermit fängt das programm an
 if __name__ == "__main__":
     parse()
-    pass
