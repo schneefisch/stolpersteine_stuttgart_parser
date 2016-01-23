@@ -182,9 +182,6 @@ def run():
                     line.append('lat')
                     line.append('long')
 
-                new_csv.append(line)
-                # die neue (erweiterte) Zeile wird zur neuen Datei hinzugefügt
-
             else:
 
                 # wenn 5 felder eingetragen sind in dieser Zeile,
@@ -201,12 +198,17 @@ def run():
                 # wenn wir -1 zurück bekommen, dann gab es einen Fehler und wir stoppen die Bearbeitung!
                 if lat == -1:
                     print 'stoppe bearbeitung'
-                    print new_csv
+
+                    # beende die schleife komplett
                     break
 
-                # füge die beiden werte zur Zeile hinzu
-                line.append(lat)
-                line.append(long)
+                else:
+                    # füge die beiden werte zur Zeile hinzu
+                    line.append(lat)
+                    line.append(lng)
+
+            new_csv.append(line)
+            # die neue (erweiterte) Zeile wird zur neuen Datei hinzugefügt
 
             line_nr += 1
             # zähle 1 zur zeilennummer hinzu
