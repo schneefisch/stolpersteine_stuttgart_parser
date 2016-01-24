@@ -1,27 +1,27 @@
-name,strasse,link
-Lilly Abele,Karl-Kloß-Str. 42,http://www.stolpersteine-stuttgart.de/index.php?docid=585&mid=66
-Margarete Adelsheimer,Hospitalstr. 36,http://www.stolpersteine-stuttgart.de/index.php?docid=530&mid=66
-Clara Adler,Ostendstr. 83,http://www.stolpersteine-stuttgart.de/index.php?docid=550&mid=66
-Rudolf Adler,Ostendstr. 83,http://www.stolpersteine-stuttgart.de/index.php?docid=550&mid=66
-Friedrich Alexander,Sattlerstr. 25,http://www.stolpersteine-stuttgart.de/index.php?docid=750&mid=66
-Helene Alexander,Sattlerstr. 25,http://www.stolpersteine-stuttgart.de/index.php?docid=750&mid=66
-Alice Allmeyer,Eberhardstr. 49,http://www.stolpersteine-stuttgart.de/index.php?docid=445&mid=66
-Leo Allmeyer,Eberhardstr. 49,http://www.stolpersteine-stuttgart.de/index.php?docid=445&mid=66
-Mali (Amalie) Alter,Augustenstr. 65,http://www.stolpersteine-stuttgart.de/index.php?docid=484&mid=66
-Sandor (Alexander) Alter,Augustenstr. 65,http://www.stolpersteine-stuttgart.de/index.php?docid=484&mid=66
-Catharine Anshelm,Grazer Str. 8,
-Willi Karl App,Leonhardsplatz 15,http://www.stolpersteine-stuttgart.de/index.php?docid=583&mid=66
-Emma Arm,Tübinger Str. 18,http://www.stolpersteine-stuttgart.de/index.php?docid=443&mid=66
-Heinrich Cheim Arm,Tübinger Str. 18,http://www.stolpersteine-stuttgart.de/index.php?docid=443&mid=66
-Eugen Armbruster,Hackstraße 80,
-Gustav Arnstein,Bismarkstr. 79,http://www.stolpersteine-stuttgart.de/index.php?docid=672&mid=66
-Arthur Ascher,Weißenburgstr. 2 B,http://www.stolpersteine-stuttgart.de/index.php?docid=492&mid=66
-Gottlob Assenheimer,Finkenstr. 28,http://www.stolpersteine-stuttgart.de/index.php?docid=748&mid=66
-Fanny (Frimet) Aufrichtig,Josef Hirn Platz 4,http://www.stolpersteine-stuttgart.de/index.php?docid=450&mid=66
-Isaak Aufrichtig,Josef Hirn Platz 4,http://www.stolpersteine-stuttgart.de/index.php?docid=450&mid=66
-Anna Ausübel,Schloßstr. 54,
-Sally Ausübel,Schloßstr. 54,
-Ernst Baer,König-Karl-Str. 43,http://www.stolpersteine-cannstatt.de/node/142
+name,strasse,link,lat,long
+Gottlob Assenheimer,Finkenstr. 28,http://www.stolpersteine-stuttgart.de/index.php?docid=748&mid=66,48.7595,9.156939999999999
+Fanny (Frimet) Aufrichtig,Josef Hirn Platz 4,http://www.stolpersteine-stuttgart.de/index.php?docid=450&mid=66,48.7728438,9.1777101
+Isaak Aufrichtig,Josef Hirn Platz 4,http://www.stolpersteine-stuttgart.de/index.php?docid=450&mid=66,48.7728438,9.1777101
+Anna Ausübel,Schloßstr. 54,,48.681273,9.271950000000002
+Sally Ausübel,Schloßstr. 54,,48.681273,9.271950000000002
+Ernst Baer,König-Karl-Str. 43,http://www.stolpersteine-cannstatt.de/node/142,48.80440000000001,9.2182
+Emma Arm,Tübinger Str. 18,http://www.stolpersteine-stuttgart.de/index.php?docid=443&mid=66,48.772131,9.174175499999999
+Heinrich Cheim Arm,Tübinger Str. 18,http://www.stolpersteine-stuttgart.de/index.php?docid=443&mid=66,48.772131,9.174175499999999
+Eugen Armbruster,Hackstraße 80,,48.7889023,9.2057031
+Gustav Arnstein,Bismarkstr. 79,http://www.stolpersteine-stuttgart.de/index.php?docid=672&mid=66,48.7713,9.15186
+Arthur Ascher,Weißenburgstr. 2 B,http://www.stolpersteine-stuttgart.de/index.php?docid=492&mid=66,48.7690544,9.1746511
+Willi Karl App,Leonhardsplatz 15,http://www.stolpersteine-stuttgart.de/index.php?docid=583&mid=66,48.77285999999999,9.18057
+Emma Arm,Tübinger Str. 18,http://www.stolpersteine-stuttgart.de/index.php?docid=443&mid=66,48.772131,9.174175499999999
+Heinrich Cheim Arm,Tübinger Str. 18,http://www.stolpersteine-stuttgart.de/index.php?docid=443&mid=66,48.772131,9.174175499999999
+Eugen Armbruster,Hackstraße 80,,48.7889023,9.2057031
+Gustav Arnstein,Bismarkstr. 79,http://www.stolpersteine-stuttgart.de/index.php?docid=672&mid=66,48.7713,9.15186
+Arthur Ascher,Weißenburgstr. 2 B,http://www.stolpersteine-stuttgart.de/index.php?docid=492&mid=66,48.7690544,9.1746511
+Gottlob Assenheimer,Finkenstr. 28,http://www.stolpersteine-stuttgart.de/index.php?docid=748&mid=66,48.7595,9.156939999999999
+Fanny (Frimet) Aufrichtig,Josef Hirn Platz 4,http://www.stolpersteine-stuttgart.de/index.php?docid=450&mid=66,48.7728438,9.1777101
+Isaak Aufrichtig,Josef Hirn Platz 4,http://www.stolpersteine-stuttgart.de/index.php?docid=450&mid=66,48.7728438,9.1777101
+Anna Ausübel,Schloßstr. 54,,48.681273,9.271950000000002
+Sally Ausübel,Schloßstr. 54,,48.681273,9.271950000000002
+Ernst Baer,König-Karl-Str. 43,http://www.stolpersteine-cannstatt.de/node/142,48.80440000000001,9.2182
 Julius Baer,Eberhardstr. 1,http://www.stolpersteine-stuttgart.de/index.php?docid=62&mid=66
 Martha Baer,Eberhardstr. 1,http://www.stolpersteine-stuttgart.de/index.php?docid=62&mid=66
 Jeanette Bamberger,Hauptmannsreute 7,http://www.stolpersteine-stuttgart.de/index.php?docid=739&mid=66

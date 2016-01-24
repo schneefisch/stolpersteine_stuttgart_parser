@@ -168,50 +168,59 @@ def run():
     new_csv = []
     # beinhaltet die Daten für die neue CSV-datei
 
+    # copiere die inhalte aus der stolpersteine-csv in "new_csv"
     with open('stolpersteine.csv', 'r') as stolpersteine:
         filereader = csv.reader(stolpersteine)
 
         for line in filereader:
-            # Schritt 2: Für jede Adresse, lade die Geokoordinaten
+            new_csv.append(line)
 
-            if line_nr == 0:
-                # das ist die Titelzeile, die kann einfach kopiert werden
-                if len(line) == 3:
-                    # dann sind bisher nur 'name', 'adresse', 'link' im titel.
-                    # füge 'lat' und 'long' hinzu, also breigengrad (lat) und längengrad (long)
-                    line.append('lat')
-                    line.append('long')
+    for line in new_csv:
+        # Schritt 2: Für jede Adresse, lade die Geokoordinaten
+
+        if line_nr == 0:
+            # das ist die Titelzeile, die kann einfach kopiert werden
+            if len(line) == 3:
+                # dann sind bisher nur 'name', 'adresse', 'link' im titel.
+                # füge 'lat' und 'long' hinzu, also breigengrad (lat) und längengrad (long)
+                line.append('lat')
+                line.append('long')
+
+        elif len(line) == 5:
+            # wenn bereits fünf stellen in der Zeile enthalten sind, dann haben wir hier shon
+            # lat und long herausgesucht. überspringe die Zeile
+            continue
+
+        else:
+
+            # wenn 5 felder eingetragen sind in dieser Zeile,
+            # dann haben wir bereits lat und long in einem vorherigen Schritt!
+
+            # für alle anderen Zeilen
+            # die Adresse ist an der zweiten Stelle: (erinnerung: python fängt bei 0 an zu zählen!!)
+            address = line[1]
+            name = line[0]
+            print 'suche adresse: ' + address
+
+            lat, lng = get_geocode(address, name)
+
+            # wenn wir -1 zurück bekommen, dann gab es einen Fehler und wir stoppen die Bearbeitung!
+            if lat == -1:
+                print 'stoppe bearbeitung'
+
+                # beende die schleife komplett
+                break
 
             else:
+                # füge die beiden werte zur Zeile hinzu
+                line.append(lat)
+                line.append(lng)
 
-                # wenn 5 felder eingetragen sind in dieser Zeile,
-                # dann haben wir bereits lat und long in einem vorherigen Schritt!
+        new_csv[line_nr] = line
+        # die neue (erweiterte) Zeile wird zur neuen Datei hinzugefügt
 
-                # für alle anderen Zeilen
-                # die Adresse ist an der zweiten Stelle: (erinnerung: python fängt bei 0 an zu zählen!!)
-                address = line[1]
-                name = line[0]
-                print 'suche adresse: ' + address
-
-                lat, lng = get_geocode(address, name)
-
-                # wenn wir -1 zurück bekommen, dann gab es einen Fehler und wir stoppen die Bearbeitung!
-                if lat == -1:
-                    print 'stoppe bearbeitung'
-
-                    # beende die schleife komplett
-                    break
-
-                else:
-                    # füge die beiden werte zur Zeile hinzu
-                    line.append(lat)
-                    line.append(lng)
-
-            new_csv.append(line)
-            # die neue (erweiterte) Zeile wird zur neuen Datei hinzugefügt
-
-            line_nr += 1
-            # zähle 1 zur zeilennummer hinzu
+        line_nr += 1
+        # zähle 1 zur zeilennummer hinzu
 
     # Schritt 3: Schreibe die neuen Koordinaten zurück in die Datei
     with open('stolpersteine.csv', 'w') as stolpersteine:
