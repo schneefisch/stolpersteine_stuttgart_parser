@@ -125,24 +125,25 @@ def get_geocode(address, name):
         # teste wie viele Ergebnisse wir bekommen haben,
         # es kann ja sein, dass es mehrere Straßen mit diesem Namen in Stuttgart gibt...
         if len(ergebnisse) > 1:
-            counter = 0
-            print '\n------------------------------------------------------------------------'
-            print 'UPS, wir haben mehrere Ergebnisse für [' + name + ']. Bitte genau ansehen!!!'
-
-            for location in ergebnisse:
-                addresse_output = '%d: ' + location['formatted_address']
-                print addresse_output % (counter)
-                counter += 1
-
-            print 'zum Beenden gib "q" ein.'
-            nr = raw_input('Welches soll ich nehmen? (Python fängt bei 0 an zu zählen!): ')
-            try:
-                nr = int(nr)
-            except:
-                print 'konnte die nummer nicht konvertieren!'
-                return lat, lng
-
-            erg = ergebnisse[nr]
+            # counter = 0
+            # print '\n------------------------------------------------------------------------'
+            # print 'UPS, wir haben mehrere Ergebnisse für [' + name + ']. Bitte genau ansehen!!!'
+            #
+            # for location in ergebnisse:
+            #     addresse_output = '%d: ' + location['formatted_address']
+            #     print addresse_output % (counter)
+            #     counter += 1
+            #
+            # print 'zum Beenden gib "q" ein.'
+            # nr = raw_input('Welches soll ich nehmen? (Python fängt bei 0 an zu zählen!): ')
+            # try:
+            #     nr = int(nr)
+            # except:
+            #     print 'konnte die nummer nicht konvertieren!'
+            #     return lat, lng
+            #
+            # erg = ergebnisse[nr]
+            erg = ergebnisse[0]
 
         else:
             erg = ergebnisse[0]
