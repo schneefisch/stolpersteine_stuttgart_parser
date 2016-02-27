@@ -9,7 +9,7 @@ google_api_key = 'AIzaSyCu4u_tR8T4xxXF8synoXQlrLU-64u1X5M'
 
 
 # noinspection SpellCheckingInspection
-def get_geocode(address, name):
+def get_geocode(address):
     """
     Diese Funktion holt für jede einzelne Straße die entsprechenden Geocoordinaten von Google
 
@@ -95,7 +95,6 @@ def get_geocode(address, name):
     bei etwas anderem als "OK" kann ein weiteres Feld
     "error_message" enthalten sein
 
-    :param name: Name der gesuchten person
     :param address: Straße
     :return: lat, lng
     """
@@ -200,10 +199,9 @@ def run():
             # für alle anderen Zeilen
             # die Adresse ist an der zweiten Stelle: (erinnerung: python fängt bei 0 an zu zählen!!)
             address = line[1]
-            name = line[0]
             print 'suche adresse: ' + address
 
-            lat, lng = get_geocode(address, name)
+            lat, lng = get_geocode(address)
 
             # wenn wir -1 zurück bekommen, dann gab es einen Fehler und wir stoppen die Bearbeitung!
             if lat == -1:
