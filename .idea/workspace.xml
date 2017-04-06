@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8ddde81-c654-4f82-8a66-c97b14471e8a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stolpersteine_20160807.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/known_wrong_coordinates.csv" afterPath="$PROJECT_DIR$/known_wrong_coordinates.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/request_coordinates.py" afterPath="$PROJECT_DIR$/request_coordinates.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stolpersteine.csv" afterPath="$PROJECT_DIR$/stolpersteine.csv" />
     </list>
     <ignored path="stolpersteine_crawler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -536,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1456603653496</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update stolpersteine csv and some code-optimisations">
+      <created>1491511648654</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491511648654</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -601,7 +603,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="neue stolpersteine" />
     <MESSAGE value="small update to code. new run on parsing the website." />
-    <option name="LAST_COMMIT_MESSAGE" value="small update to code. new run on parsing the website." />
+    <MESSAGE value="update stolpersteine csv and some code-optimisations" />
+    <option name="LAST_COMMIT_MESSAGE" value="update stolpersteine csv and some code-optimisations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
