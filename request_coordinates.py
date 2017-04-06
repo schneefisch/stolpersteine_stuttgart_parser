@@ -4,8 +4,22 @@ import urllib
 import urllib2
 import simplejson
 import csv
+import string
 
 google_api_key = 'AIzaSyCu4u_tR8T4xxXF8synoXQlrLU-64u1X5M'
+
+
+def load_csv(filename):
+    data = []
+    # beinhaltet die Daten für die neue CSV-datei
+
+    # copiere die inhalte aus der stolpersteine-csv in "new_csv"
+    with open(filename, 'r') as stolpersteine:
+        filereader = csv.reader(stolpersteine)
+
+        for line in filereader:
+            data.append(line)
+    return data
 
 
 # noinspection SpellCheckingInspection
@@ -153,9 +167,17 @@ def get_geocode(address):
 
     else:
         print 'FEHLER: ' + status
-        print 'Fehlermeldung: ' + json_response['error_message']
+        # print 'Fehlermeldung: ' + json_response['status']
 
     return lat, lng
+
+
+def address_is_in_list(name, street, addresslist):
+    for line in addresslist:
+        if string.lower(name) == string.lower(line[0]) and string.lower(street) == string.lower(line[1]):
+            print 'Found duplicate: {0}, {1}'.format(name, street)
+            return True, line[3], line[4]
+    return False, None, None
 
 
 # noinspection SpellCheckingInspection
@@ -165,15 +187,8 @@ def run():
     line_nr = 0
     # damit ich weiß in welcher Zeile ich bin
 
-    new_csv = []
-    # beinhaltet die Daten für die neue CSV-datei
-
-    # copiere die inhalte aus der stolpersteine-csv in "new_csv"
-    with open('stolpersteine.csv', 'r') as stolpersteine:
-        filereader = csv.reader(stolpersteine)
-
-        for line in filereader:
-            new_csv.append(line)
+    new_csv = load_csv('stolpersteine.csv')
+    known_wrong_addresses = load_csv('known_wrong_coordinates.csv')
 
     for line in new_csv:
         # Schritt 2: Für jede Adresse, lade die Geokoordinaten
@@ -196,24 +211,36 @@ def run():
             # wenn 5 felder eingetragen sind in dieser Zeile,
             # dann haben wir bereits lat und long in einem vorherigen Schritt!
 
-            # für alle anderen Zeilen
-            # die Adresse ist an der zweiten Stelle: (erinnerung: python fängt bei 0 an zu zählen!!)
-            address = line[1]
-            print 'suche adresse: ' + address
+            # prüfe ob die addresse schon in den "known_wrong_coordinates" ist.
+            duplicate, knownlat, knownlng = address_is_in_list(line[0], line[1], known_wrong_addresses)
 
-            lat, lng = get_geocode(address)
-
-            # wenn wir -1 zurück bekommen, dann gab es einen Fehler und wir stoppen die Bearbeitung!
-            if lat == -1:
-                print 'stoppe bearbeitung'
-
-                # beende die schleife komplett
-                break
+            if duplicate:
+                # wenn es eine bekannte falsche addresse ist, nutze die bekannten Werte
+                line.append(knownlat)
+                line.append(knownlng)
 
             else:
-                # füge die beiden werte zur Zeile hinzu
-                line.append(lat)
-                line.append(lng)
+                # für alle anderen Zeilen
+                # die Adresse ist an der zweiten Stelle: (erinnerung: python fängt bei 0 an zu zählen!!)
+                address = line[1]
+                print 'suche adresse: ' + address
+
+                lat, lng = get_geocode(address)
+
+                # wenn wir -1 zurück bekommen, dann gab es einen Fehler und wir stoppen die Bearbeitung!
+                if lat == -1:
+                    print 'Fehler trat auf. füge leere Werte hinzu'
+                    line.append("")
+                    line.append("")
+
+                    # beende die schleife komplett
+                    # break
+                    continue
+
+                else:
+                    # füge die beiden werte zur Zeile hinzu
+                    line.append(lat)
+                    line.append(lng)
 
         new_csv[line_nr] = line
         # die neue (erweiterte) Zeile wird zur neuen Datei hinzugefügt
