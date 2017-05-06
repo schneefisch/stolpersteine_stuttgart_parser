@@ -44,9 +44,11 @@
       <file leaf-file-name="request_coordinates.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/request_coordinates.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="142" column="91" lean-forward="false" selection-start-line="142" selection-start-column="91" selection-end-line="142" selection-end-column="91" />
-              <folding />
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="e#16#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,7 +153,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.parse_stolpersteine">
+  <component name="RunManager" selected="Python.request_coordinates">
     <configuration default="false" name="parse_stolpersteine" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -833,9 +835,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/request_coordinates.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="142" column="91" lean-forward="false" selection-start-line="142" selection-start-column="91" selection-end-line="142" selection-end-column="91" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#16#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
