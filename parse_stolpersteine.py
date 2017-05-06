@@ -43,7 +43,6 @@ def parse():
     url = "index.php?docid=196&mid=66"
     print "search for URL: " + base_url + url
 
-    seite = None
     stolpersteine = []
 
     try:
@@ -56,18 +55,18 @@ def parse():
     # soup.prettify(formatter=lambda s: s.replace(u'\xa0', ' '))
     div = soup.find('div', {'class': 'SingleDoc KategorieDokument'})
     # print div
-    listElements = div.findAll('li')
+    list_elements = div.findAll('li')
 
-    for element in listElements:
+    for element in list_elements:
 
         # check if the element has any content
-        contentList = element.contents
+        content_list = element.contents
 
         link = ""
         name = ""
         street = ""
 
-        for content in contentList:
+        for content in content_list:
             try:
                 tag_name = content.name
             except:

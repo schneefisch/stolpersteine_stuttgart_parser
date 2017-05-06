@@ -6,7 +6,11 @@ import simplejson
 import csv
 import string
 
-google_api_key = 'AIzaSyCu4u_tR8T4xxXF8synoXQlrLU-64u1X5M'
+WRONG_COORDINATES_CSV = 'known_wrong_coordinates.csv'
+
+STOLPERSTEINE_CSV = 'stolpersteine.csv'
+
+GOOGLE_API_KEY = 'AIzaSyCu4u_tR8T4xxXF8synoXQlrLU-64u1X5M'
 
 
 def load_csv(filename):
@@ -114,7 +118,7 @@ def get_geocode(address):
     """
     # normalisiere die Adresse, d.h.
     parameters = {
-        'key': google_api_key,
+        'key': GOOGLE_API_KEY,
         'address': address + ', Stuttgart, Baden-Württemberg, Deutschland'
     }
     query_url = urllib.urlencode(parameters)
@@ -135,31 +139,9 @@ def get_geocode(address):
         # ergebnisse
         ergebnisse = json_response['results']
 
-        # teste wie viele Ergebnisse wir bekommen haben,
-        # es kann ja sein, dass es mehrere Straßen mit diesem Namen in Stuttgart gibt...
-        if len(ergebnisse) > 1:
-            # counter = 0
-            # print '\n------------------------------------------------------------------------'
-            # print 'UPS, wir haben mehrere Ergebnisse für [' + name + ']. Bitte genau ansehen!!!'
-            #
-            # for location in ergebnisse:
-            #     addresse_output = '%d: ' + location['formatted_address']
-            #     print addresse_output % (counter)
-            #     counter += 1
-            #
-            # print 'zum Beenden gib "q" ein.'
-            # nr = raw_input('Welches soll ich nehmen? (Python fängt bei 0 an zu zählen!): ')
-            # try:
-            #     nr = int(nr)
-            # except:
-            #     print 'konnte die nummer nicht konvertieren!'
-            #     return lat, lng
-            #
-            # erg = ergebnisse[nr]
-            erg = ergebnisse[0]
-
-        else:
-            erg = ergebnisse[0]
+        # wir nehmen "by default" das erste ergebnis. in 95% der Fälle ist dies korrekt.
+        # die anderen Fälle werden mit der Zeit in "known_wrong_coordingates.csv" gepflegt.
+        erg = ergebnisse[0]
 
         # jetzt suchen wir den Längen- und Breitengrad
         lat = erg['geometry']['location']['lat']
@@ -187,8 +169,8 @@ def run():
     line_nr = 0
     # damit ich weiß in welcher Zeile ich bin
 
-    new_csv = load_csv('stolpersteine.csv')
-    known_wrong_addresses = load_csv('known_wrong_coordinates.csv')
+    new_csv = load_csv(STOLPERSTEINE_CSV)
+    known_wrong_addresses = load_csv(WRONG_COORDINATES_CSV)
 
     for line in new_csv:
         # Schritt 2: Für jede Adresse, lade die Geokoordinaten
@@ -249,7 +231,7 @@ def run():
         # zähle 1 zur zeilennummer hinzu
 
     # Schritt 3: Schreibe die neuen Koordinaten zurück in die Datei
-    with open('stolpersteine.csv', 'w') as stolpersteine:
+    with open(STOLPERSTEINE_CSV, 'w') as stolpersteine:
         filewriter = csv.writer(stolpersteine)
 
         for line in new_csv:
